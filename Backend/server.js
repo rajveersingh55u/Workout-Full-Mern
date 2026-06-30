@@ -1,0 +1,48 @@
+//import express
+const express = require('express')
+const dotenv = require ('dotenv')
+const mongoose = require ('mongoose')
+
+//Routes
+const woroutRoutes = require('./routes/workout')
+const userRoutes = require('./routes/user')
+
+dotenv.config();
+
+
+//express app
+const app = express()
+
+//middleware
+app.use(express.json())
+app.use((req,res,next)=>{
+    console.log(req.path, req.method);
+    next()   
+})
+
+//Routes
+app.get('/',(req,res)=>{
+    res.json({msg:'Welcome to our app'})
+})
+
+app.use('/api/workouts/',woroutRoutes)
+app.use('/api/user',userRoutes)
+
+
+
+//PORT 
+const PORT = process.env.PORT || 4000;
+//connect db
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    //listen request
+  app.listen(PORT, () => {
+    console.log(`server is up an listining at: http://localhost:${PORT} & connected to Our Database`);
+  });
+})
+.catch((error) => {
+  console.log(error);
+});
+
+
+
