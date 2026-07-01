@@ -15,10 +15,19 @@ dotenv.config();
 //express app
 const app = express()
 
+// CORS configuration
 app.use(cors({
-    origin: 'https://workouts-full-mern-git-main-rajveersingh55us-projects.vercel.app',
-    credentials: true
+  origin: [
+    'http://localhost:5173',
+    'https://workouts-full-mern-git-main-rajveersingh55us-projects.vercel.app'
+  ],
+  credentials: true
 }));
+
+// app.use(cors({
+//     origin: 'https://workouts-full-mern-git-main-rajveersingh55us-projects.vercel.app',
+//     credentials: true
+// }));
 
 //middleware
 app.use(express.json())
