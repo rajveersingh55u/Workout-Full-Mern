@@ -15,7 +15,10 @@ dotenv.config();
 //express app
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://workouts-full-mern-git-main-rajveersingh55us-projects.vercel.app',
+    credentials: true
+}));
 
 //middleware
 app.use(express.json())
