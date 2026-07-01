@@ -24,6 +24,12 @@ export const UseLogin = () => {
         body: JSON.stringify({ email, password })
       })
 
+      console.log("API URL:", import.meta.env.VITE_API_URL);
+      console.log(
+                   "Login URL:",
+              `${import.meta.env.VITE_API_URL}/api/user/login`
+       );
+
       const json = await response.json()
 
       if (!response.ok) {
