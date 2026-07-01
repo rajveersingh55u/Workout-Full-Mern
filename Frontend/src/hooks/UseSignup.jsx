@@ -58,10 +58,7 @@ export const UseSignup = () => {
     setError(null)
 
     try {
-      //connection code to backend
-      const API_URL = import.meta.env.VITE_API_URL;
-
-      const response = await fetch(`${API_URL}/api/user/login`, {
+      const response = await fetch('/api/user/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
