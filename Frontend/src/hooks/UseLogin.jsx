@@ -15,7 +15,10 @@ export const UseLogin = () => {
     setError(null)
 
     try {
-      const response = await fetch('/api/user/login', {
+      //connection code to backend
+      const API_URL = import.meta.env.VITE_API_URL;
+
+      const response = await fetch(`${API_URL}/api/user/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
