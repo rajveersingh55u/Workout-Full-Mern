@@ -19,7 +19,8 @@ const Home = () => {
   console.log("LocalStorage:", localStorage.getItem("user"));
   useEffect(() => {
     const fetchworkouts = async () => {
-      const response = await fetch("/api/workouts/", {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/workouts`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user.token}`,
