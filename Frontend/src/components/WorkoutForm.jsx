@@ -26,7 +26,10 @@ const WorkoutForm = () => {
       reps
     };
 
-    const response = await fetch("/api/workouts", {
+
+    const API_URL = import.meta.env.VITE_API_URL;
+
+    const response = await fetch(`${API_URL}/api/workouts`, {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {
