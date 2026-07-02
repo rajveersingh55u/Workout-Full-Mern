@@ -70,6 +70,8 @@ export const UseSignup = () => {
       console.log("Signup URL:", `${API_URL}/api/user/signup`);
 
       const json = await response.json();
+      console.log("Status:", response.status);
+      console.log("Response:", json);
 
       if (!response.ok) {
         setError(json.error || "Signup failed");
