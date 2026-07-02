@@ -16,15 +16,15 @@ export const UseLogin = () => {
 
     try {
       //connection code to backend
-      // const API_URL = import.meta.env.VITE_API_URL;
+      const API_URL = import.meta.env.VITE_API_URL;
 
-      const response = await fetch(`https://workoutfull-mern.onrender.com/api/user/login`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json' 
+      const response = await fetch(`${API_URL}/api/user/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password })
-      })
+        body: JSON.stringify({ email, password }),
+      });
       
 
       console.log("API URL:", import.meta.env.VITE_API_URL);
