@@ -16,13 +16,16 @@ dotenv.config();
 const app = express()
 
 // CORS configuration
-app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://6a46d536c46ecc356284e1f3--classy-chaja-db9178.netlify.app'
-  ],
-  credentials: true
-}))
+// app.use(cors({
+//   origin: [
+//     'http://localhost:5173',
+//     'https://6a46d536c46ecc356284e1f3--classy-chaja-db9178.netlify.app'
+//   ],
+//   credentials: true
+// }))
+
+
+app.use(cors())
 
 
 
