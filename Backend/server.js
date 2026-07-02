@@ -19,7 +19,7 @@ const app = express()
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://melodic-pastelito-e389b6.netlify.app'
+    'https://6a46d536c46ecc356284e1f3--classy-chaja-db9178.netlify.app'
   ],
   credentials: true
 }))
