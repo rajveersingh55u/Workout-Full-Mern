@@ -66,6 +66,8 @@ export const UseSignup = () => {
         },
         body: JSON.stringify({ email, password }),
       });
+      console.log("API_URL:", API_URL);
+      console.log("Signup URL:", `${API_URL}/api/user/signup`);
 
       const json = await response.json();
 
