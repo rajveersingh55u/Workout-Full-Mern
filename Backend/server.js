@@ -19,15 +19,12 @@ const app = express()
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://workouts-full-mern-git-main-rajveersingh55us-projects.vercel.app'
+    'https://melodic-pastelito-e389b6.netlify.app'
   ],
   credentials: true
-}));
+}))
 
-// app.use(cors({
-//     origin: 'https://workouts-full-mern-git-main-rajveersingh55us-projects.vercel.app',
-//     credentials: true
-// }));
+
 
 //middleware
 app.use(express.json())
