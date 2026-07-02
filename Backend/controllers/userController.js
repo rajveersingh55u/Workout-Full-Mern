@@ -23,25 +23,47 @@ const loginUser = async(req,res)=>{
 
 
 //signup user
-const signupUser = async(req,res)=>{
+// const signupUser = async(req,res)=>{
  
-    console.log(req.body);
+//     console.log(req.body);
      
-    const {email, password} =req.body
+//     const {email, password} =req.body
     
-    try{
+//     try{
               
-       const user = await User.signup(email, password)
+//        const user = await User.signup(email, password)
 
-       //create a token
-       const token = createToken(user._id)
+//        //create a token
+//        const token = createToken(user._id)
 
-        res.status(200).json({email, token})
-    } catch(error){
-        res.status(400).json({error:error.message})
+//         res.status(200).json({email, token})
+//     } catch(error){
+//         res.status(400).json({error:error.message})
+//     }
+
+//     // res.json({msg:'SignUp User'})
+// }
+const signupUser = async (req, res) => {
+
+    console.log("BODY:", req.body);
+    console.log("SECRET:", process.env.SECRET);
+
+    const { email, password } = req.body;
+
+    try {
+
+        const user = await User.signup(email, password);
+
+        const token = createToken(user._id);
+
+        res.status(200).json({ email, token });
+
+    } catch (error) {
+
+        console.log("SIGNUP ERROR:", error);
+
+        res.status(400).json({ error: error.message });
     }
-
-    // res.json({msg:'SignUp User'})
 }
 
 module.exports={loginUser,signupUser}
